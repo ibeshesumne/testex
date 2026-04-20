@@ -2,134 +2,316 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Training Index</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Exercise Notes — ICD</title>
+  <link rel="stylesheet" href="../shared/ufan-preamble.css" />
+  <link rel="stylesheet" href="notes.css" />
   <style>
-    :root {
-      --bg: #f5f7fb;
-      --surface: #ffffff;
-      --text: #1d2939;
-      --muted: #475467;
-      --line: #d0d5dd;
-      --accent: #155eef;
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: Inter, "Segoe UI", Arial, sans-serif;
-      color: var(--text);
-      background: var(--bg);
-      line-height: 1.5;
-    }
-    main {
-      max-width: 980px;
-      margin: 0 auto;
-      padding: 1.25rem;
-    }
-    h1, h2, h3 {
-      margin: 0 0 0.7rem;
-      line-height: 1.2;
-    }
-    p { margin: 0 0 0.75rem; }
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      padding: 1rem;
-      margin-bottom: 1rem;
-    }
-    .lead { color: var(--muted); max-width: 72ch; }
-    .links {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 0.75rem;
-    }
-    .link-card {
-      border: 1px solid var(--line);
-      border-radius: 10px;
-      padding: 0.8rem;
-      background: #fcfcfd;
-    }
-    .link-card a {
-      color: var(--accent);
-      text-decoration: none;
-      font-weight: 600;
-    }
-    .link-card a:hover { text-decoration: underline; }
-    table {
+    .search-box {
       width: 100%;
-      border-collapse: collapse;
-      margin-top: 0.5rem;
-      font-size: 0.95rem;
+      padding: 0.6rem 0.85rem;
+      font-size: 0.92rem;
+      font-family: inherit;
+      color: var(--text);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      outline: none;
+      margin-bottom: 1.25rem;
+      transition: border-color 0.15s;
     }
-    th, td {
-      border: 1px solid var(--line);
-      text-align: left;
-      vertical-align: top;
-      padding: 0.55rem;
+    .search-box:focus {
+      border-color: var(--accent);
     }
-    th { background: #f2f4f7; }
-    .muted { color: var(--muted); }
+    .search-box::placeholder {
+      color: var(--muted);
+      opacity: 0.7;
+    }
+    .note-count {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+    table { margin-top: 0; }
+    td.date { white-space: nowrap; color: var(--muted); width: 7rem; }
+    td.title a { font-weight: 500; }
+    td.tags {
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+    td.tags span {
+      display: inline-block;
+      background: var(--accent-soft);
+      color: var(--accent);
+      padding: 0.1em 0.5em;
+      border-radius: 3px;
+      margin: 0.1em 0.15em;
+      font-size: 0.78rem;
+    }
+    tr.hidden { display: none; }
+    .no-results {
+      display: none;
+      padding: 1.5rem 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+      text-align: center;
+    }
+    .no-results.visible { display: block; }
   </style>
 </head>
 <body>
-<main>
-  <section class="card">
-    <h1>Training Index</h1>
-    <p class="lead">
-      Central landing page for weekly cardio programming and anatomy reference material.
-      Use this as the starting point for training sessions and study.
-    </p>
-  </section>
+  <div class="wrap">
+    <aside class="ufan-preamble ufan-preamble--compact" aria-label="Preamble">
+      <p class="ufan-preamble__label">Preamble</p>
+      <p>Notes written during exercise programming — force mechanics, movement types, scoring analysis, program design. Each began as a question asked while reading the catalog; most were answered by the physics of levers and the biology of stretch under load.</p>
+      <p class="ufan-preamble__attrib">After Lee Ufan — <code>art_design_thought</code>.</p>
+    </aside>
 
-  <section class="card">
-    <h2>Core Training Pages</h2>
-    <div class="links">
-      <article class="link-card">
-        <h3><a href="treadmill_weekly_program.html">Weekly Treadmill Program</a></h3>
-        <p class="muted">7-day cardio structure with HIIT, incline sessions, and recovery guidance.</p>
-      </article>
-      <article class="link-card">
-        <h3><a href="anatomy_glossary.html">Anatomy Glossary</a></h3>
-        <p class="muted">Alphabetical glossary of muscles, joints, and movement definitions by body part.</p>
-      </article>
-      <article class="link-card">
-        <h3><a href="anatomy_glossary (5).html">Anatomy Glossary (5)</a></h3>
-        <p class="muted">Alternate glossary copy for review and comparison.</p>
-      </article>
-    </div>
-  </section>
+    <h1>Exercise Notes</h1>
+    <input type="text" class="search-box" id="search" placeholder="Search notes by title, topic, or tag…" autocomplete="off" />
+    <p class="note-count" id="count">Showing <span id="visible-count">18</span> of 18 notes</p>
 
-  <section class="card">
-    <h2>Weekly Training Framework</h2>
-    <table>
+    <table id="notes-table">
       <thead>
         <tr>
-          <th>Day Type</th>
-          <th>Focus</th>
-          <th>Session Length</th>
+          <th>Date</th>
+          <th>Note</th>
+          <th>Topics</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>High Intensity (2-3x/week)</td>
-          <td>HIIT intervals, hill sprints, or pyramid treadmill work</td>
-          <td>15-30 min main set</td>
+        <tr data-search="treadmill weekly program HIIT incline intervals hill sprint pyramid 12-3-30 endurance cardio warm-up cool-down training plan schedule">
+          <td class="date">20 Apr 2026</td>
+          <td class="title"><a href="treadmill_weekly_program.html">Weekly Treadmill Program — HIIT, Incline, Intervals &amp; Endurance</a></td>
+          <td class="tags">
+            <span>program</span>
+            <span>cardio</span>
+            <span>treadmill</span>
+            <span>HIIT</span>
+            <span>endurance</span>
+          </td>
         </tr>
-        <tr>
-          <td>Aerobic / Endurance</td>
-          <td>Steady incline jog/walk or structured endurance intervals</td>
-          <td>30-45+ min</td>
+        <tr data-search="strength training anatomy reference muscles joints movements neck shoulder chest back biceps triceps forearm abdominals thigh hip calf lower leg cross reference lift region overview diagrams all body parts">
+          <td class="date">19 Apr 2026</td>
+          <td class="title"><a href="anatomy.html">Strength-Training Anatomy Reference</a></td>
+          <td class="tags">
+            <span>anatomy</span>
+            <span>muscles</span>
+            <span>joints</span>
+            <span>reference</span>
+            <span>all body parts</span>
+          </td>
         </tr>
-        <tr>
-          <td>Recovery</td>
-          <td>Easy walk, mobility, and breathing-focused cooldown work</td>
-          <td>20-30 min</td>
+        <tr data-search="anatomy glossary alphabetical terms definitions muscles joints movements flexion extension abduction adduction rotation pronation supination plantarflexion dorsiflexion inversion eversion protraction retraction elevation depression scapula neck shoulder elbow wrist trunk hip knee ankle per body part reference">
+          <td class="date">19 Apr 2026</td>
+          <td class="title"><a href="anatomy_glossary.html">Anatomy Glossary — Alphabetical Terms &amp; Movements by Body Part</a></td>
+          <td class="tags">
+            <span>anatomy</span>
+            <span>glossary</span>
+            <span>movements</span>
+            <span>reference</span>
+            <span>all body parts</span>
+          </td>
+        </tr>
+        <tr data-search="pendulum squat plate loaded matrix MG-PL80 cam squat quadriceps knee flexion FBD force diagram animation v7 v6 athlete metrics dashboard anatomy thigh glutes hypertrophy ROM coaching machine purpose snapshot first read bundle">
+          <td class="date">18 Apr 2026</td>
+          <td class="title"><a href="pendulum-squat/pendulum-squat-purpose-snapshot.html">Pendulum Squat — Purpose, Then Animation &amp; Anatomy (bundle)</a></td>
+          <td class="tags">
+            <span>pendulum squat</span>
+            <span>purpose</span>
+            <span>force diagram</span>
+            <span>quadriceps</span>
+            <span>anatomy</span>
+            <span>bundle</span>
+          </td>
+        </tr>
+        <tr data-search="pelvic floor core piston analysis overview biomechanical model dome trampoline diaphragm IAP pressure demand capacity eccentric resilience hip leverage obturator statistics xlsx calculator load calc breath tempo position activity">
+          <td class="date">16 Apr 2026</td>
+          <td class="title"><a href="pelvic-floor-core-piston-analysis.html">Pelvic Floor — Core Piston Analysis (project overview)</a></td>
+          <td class="tags">
+            <span>pelvic floor</span>
+            <span>biomechanics</span>
+            <span>pressure</span>
+            <span>statistics</span>
+            <span>overview</span>
+          </td>
+        </tr>
+        <tr data-search="pelvic floor animation guide core piston sagittal canister diaphragm IAP pressure eccentric inhale exhale breath dome trampoline obturator internus hip rotator engagement resilience">
+          <td class="date">16 Apr 2026</td>
+          <td class="title"><a href="pelvic-floor-animation-guide.html">Pelvic Floor — Core Piston Animation Guide (v5)</a></td>
+          <td class="tags">
+            <span>animation</span>
+            <span>pelvic floor</span>
+            <span>pressure</span>
+            <span>breath</span>
+            <span>eccentric</span>
+          </td>
+        </tr>
+        <tr data-search="pelvic floor animated html core piston sagittal canister diaphragm IAP pressure eccentric inhale exhale breath dome interactive player engagement rom">
+          <td class="date">16 Apr 2026</td>
+          <td class="title"><a href="pelvic_floor_v5.html">Pelvic Floor — Animated Core Piston Diagram (interactive)</a></td>
+          <td class="tags">
+            <span>interactive</span>
+            <span>animation</span>
+            <span>pelvic floor</span>
+            <span>IAP</span>
+          </td>
+        </tr>
+        <tr data-search="pelvic floor measurement guide postural alignment pelvis ribcage sit-bones breath diaphragm hip rotator obturator position activity IAP load index pressure bodyweight">
+          <td class="date">16 Apr 2026</td>
+          <td class="title"><a href="pelvic_floor_measurement_guide.html">Pelvic Floor — Postural Alignment &amp; Assessment Guide</a></td>
+          <td class="tags">
+            <span>measurement</span>
+            <span>pelvic floor</span>
+            <span>alignment</span>
+            <span>interactive</span>
+          </td>
+        </tr>
+        <tr data-search="triceps overhead extension animation force diagram free body fbd elbow torque moment arm hypertrophy eccentric concentric isometric long head stretch dual joint dumbbell 20 90 high tension zone olecranon mechanical disadvantage">
+          <td class="date">15 Apr 2026</td>
+          <td class="title"><a href="triceps-overhead-extension-animation-guide.html">Overhead Triceps Extension — Force Diagram Animation Guide (v5)</a></td>
+          <td class="tags">
+            <span>animation</span>
+            <span>force diagram</span>
+            <span>triceps</span>
+            <span>hypertrophy</span>
+            <span>torque</span>
+          </td>
+        </tr>
+        <tr data-search="triceps overhead extension animated html force analysis fbd free body diagram elbow rom torque moment arm concentric eccentric isometric hypertrophy interactive player long head stretch">
+          <td class="date">15 Apr 2026</td>
+          <td class="title"><a href="triceps_overhead_extension_v5.html">Overhead Triceps Extension — Animated Force Diagram (interactive)</a></td>
+          <td class="tags">
+            <span>interactive</span>
+            <span>animation</span>
+            <span>triceps</span>
+            <span>FBD</span>
+          </td>
+        </tr>
+        <tr data-search="lateral raise animation force diagram free body fbd shoulder deltoid torque moment arm hypertrophy eccentric concentric isometric abduction rom dumbbell cable band 60 90 high tension zone">
+          <td class="date">15 Apr 2026</td>
+          <td class="title"><a href="lateral-raise-animation-guide.html">Lateral Raise — Force Diagram Animation Guide (v5)</a></td>
+          <td class="tags">
+            <span>animation</span>
+            <span>force diagram</span>
+            <span>shoulders</span>
+            <span>hypertrophy</span>
+            <span>torque</span>
+          </td>
+        </tr>
+        <tr data-search="lateral raise animated html force analysis fbd free body diagram shoulder deltoid abduction rom torque moment arm concentric eccentric isometric hypertrophy interactive player">
+          <td class="date">15 Apr 2026</td>
+          <td class="title"><a href="shoulders_lateral_raise_v5.html">Lateral Raise — Animated Force Diagram (interactive)</a></td>
+          <td class="tags">
+            <span>interactive</span>
+            <span>animation</span>
+            <span>shoulders</span>
+            <span>FBD</span>
+          </td>
+        </tr>
+        <tr data-search="movement types eccentric concentric isometric hypertrophy chest back shoulders quads hamstrings glutes biceps triceps calves memory aids body parts phases">
+          <td class="date">14 Apr 2026</td>
+          <td class="title"><a href="movement-types-and-hypertrophy.html">Movement Types in Weight Training: Eccentric, Concentric &amp; Isometric</a></td>
+          <td class="tags">
+            <span>eccentric</span>
+            <span>concentric</span>
+            <span>isometric</span>
+            <span>hypertrophy</span>
+            <span>all body parts</span>
+          </td>
+        </tr>
+        <tr data-search="deadlift conventional stiff legged romanian rdl force comparison hip torque moment arm hamstrings glutes spinal erectors posterior chain hypertrophy">
+          <td class="date">14 Apr 2026</td>
+          <td class="title"><a href="deadlift-variants-force-comparison.html">Conventional, Stiff-Legged &amp; Romanian Deadlift: Force &amp; Hypertrophy</a></td>
+          <td class="tags">
+            <span>deadlift</span>
+            <span>RDL</span>
+            <span>force</span>
+            <span>hamstrings</span>
+            <span>posterior chain</span>
+          </td>
+        </tr>
+        <tr data-search="six day hypertrophy program push pull legs ppl training split shoulders chest back triceps biceps quads hamstrings calves core neck cable barbell scoring">
+          <td class="date">13 Apr 2026</td>
+          <td class="title"><a href="six-day-hypertrophy-program.html">Maximum Hypertrophy: 6-Day Training Program</a></td>
+          <td class="tags">
+            <span>program</span>
+            <span>PPL</span>
+            <span>6-day</span>
+            <span>scoring</span>
+            <span>all body parts</span>
+          </td>
+        </tr>
+        <tr data-search="top exercises s a grade coverage analysis body part gaps equipment cable barbell machine dumbbell shoulder biceps back triceps chest core forearm thigh calves neck">
+          <td class="date">13 Apr 2026</td>
+          <td class="title"><a href="top-exercises-sa-analysis.html">Top 236 Exercises (S + A Grade): Coverage Analysis</a></td>
+          <td class="tags">
+            <span>scoring</span>
+            <span>S+A grade</span>
+            <span>coverage</span>
+            <span>equipment</span>
+            <span>gaps</span>
+          </td>
+        </tr>
+        <tr data-search="force diagrams lever ratio biceps chest back shoulders quads hamstrings lower back triceps calves forearms abdominals muscle joint fulcrum effort arm resistance arm png images">
+          <td class="date">13 Apr 2026</td>
+          <td class="title"><a href="force-diagrams.html">Force Diagrams: Lever Mechanics for Every Muscle Group</a></td>
+          <td class="tags">
+            <span>force diagrams</span>
+            <span>lever ratio</span>
+            <span>all body parts</span>
+            <span>images</span>
+          </td>
+        </tr>
+        <tr data-search="understanding exercise forces lever mechanics gym lever arm angle gravity torque compound isolation cable bands grip width stance physics tension">
+          <td class="date">13 Apr 2026</td>
+          <td class="title"><a href="understanding-exercise-forces.html">Understanding Exercise Forces: Lever Mechanics in the Gym</a></td>
+          <td class="tags">
+            <span>force</span>
+            <span>lever arm</span>
+            <span>torque</span>
+            <span>physics</span>
+            <span>cables</span>
+          </td>
         </tr>
       </tbody>
     </table>
-    <p class="muted">Always include a 5-minute warm-up and 5-minute cool-down on training days.</p>
-  </section>
-</main>
+    <p class="no-results" id="no-results">No notes match your search.</p>
+
+    <p class="back"><a href="../index.html">← All routines</a></p>
+  </div>
+
+  <script>
+    (function () {
+      var input = document.getElementById('search');
+      var rows = document.querySelectorAll('#notes-table tbody tr');
+      var countEl = document.getElementById('visible-count');
+      var noResults = document.getElementById('no-results');
+      var total = rows.length;
+
+      input.addEventListener('input', function () {
+        var terms = this.value.toLowerCase().split(/\s+/).filter(Boolean);
+        var visible = 0;
+
+        rows.forEach(function (row) {
+          var haystack = (
+            row.getAttribute('data-search') + ' ' +
+            row.querySelector('.title').textContent + ' ' +
+            row.querySelector('.date').textContent
+          ).toLowerCase();
+
+          var match = terms.length === 0 || terms.every(function (t) {
+            return haystack.indexOf(t) !== -1;
+          });
+
+          row.classList.toggle('hidden', !match);
+          if (match) visible++;
+        });
+
+        countEl.textContent = visible;
+        noResults.classList.toggle('visible', visible === 0);
+      });
+    })();
+  </script>
 </body>
 </html>
