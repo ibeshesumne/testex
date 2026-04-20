@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weekly Treadmill Program</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f9fc;
+      --card: #ffffff;
+      --text: #1d2939;
+      --muted: #475467;
+      --line: #d0d5dd;
+      --accent: #155eef;
+      --soft: #e9efff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1.25rem;
+    }
+    h1, h2, h3 {
+      line-height: 1.2;
+      margin: 0 0 0.75rem;
+    }
+    p { margin: 0 0 0.75rem; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+    }
+    .lead {
+      color: var(--muted);
+      max-width: 75ch;
+    }
+    .badge {
+      display: inline-block;
+      background: var(--soft);
+      color: var(--accent);
+      border: 1px solid #bfd0ff;
+      border-radius: 999px;
+      padding: 0.2rem 0.6rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-right: 0.4rem;
+      margin-bottom: 0.4rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+    }
+    th, td {
+      border: 1px solid var(--line);
+      vertical-align: top;
+      text-align: left;
+      padding: 0.6rem;
+    }
+    th {
+      background: #f2f4f7;
+      font-weight: 700;
+    }
+    .session-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 0.75rem;
+    }
+    .session-grid article {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 0.75rem;
+      background: #fcfcfd;
+    }
+    .session-grid ul {
+      margin: 0.4rem 0 0;
+      padding-left: 1rem;
+    }
+    .tips ul {
+      margin: 0;
+      padding-left: 1.1rem;
+    }
+    .muted { color: var(--muted); }
+  </style>
+</head>
+<body>
+<main>
+  <section class="card">
+    <h1>Weekly Treadmill Program</h1>
+    <p class="lead">
+      A balanced week that combines HIIT, incline walking, and endurance work to maximize calorie burn,
+      cardiovascular progress, and recovery. Most hard sessions stay in the 15-30 minute range; endurance
+      sessions can run 45+ minutes when desired.
+    </p>
+    <span class="badge">2-3 HIIT sessions/week</span>
+    <span class="badge">Incline + intervals</span>
+    <span class="badge">Warm-up + cool-down every session</span>
+  </section>
+
+  <section class="card">
+    <h2>7-Day Schedule</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Day</th>
+          <th>Session</th>
+          <th>Main Work</th>
+          <th>Total Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Monday</strong></td>
+          <td>HIIT Pyramid</td>
+          <td>
+            30s sprint/30s walk, 1 min run/1 min walk, 2 min run/1 min walk, 3 min run/1 min walk,
+            4 min run/1 min walk, then descend back down.
+          </td>
+          <td>~30 min</td>
+        </tr>
+        <tr>
+          <td><strong>Tuesday</strong></td>
+          <td>12-3-30 Incline Walk</td>
+          <td>12% incline at 3 mph for 30 minutes (steady, no handrail support).</td>
+          <td>~40 min (incl. warm-up/cool-down)</td>
+        </tr>
+        <tr>
+          <td><strong>Wednesday</strong></td>
+          <td>3-2-1 Endurance Intervals</td>
+          <td>Repeat: 3 min fast run, 2 min jog, 1 min walk for 20-30 minutes.</td>
+          <td>~30-40 min</td>
+        </tr>
+        <tr>
+          <td><strong>Thursday</strong></td>
+          <td>Low-Impact Incline Intervals</td>
+          <td>10-minute set of 25-second pushes at 5-9% incline and 3.5-4 mph with easier recovery periods.</td>
+          <td>~20-30 min</td>
+        </tr>
+        <tr>
+          <td><strong>Friday</strong></td>
+          <td>HIIT Hill Sprints</td>
+          <td>3-4 rounds: 2 min hard run at 5-10% incline, then 1 min walk recovery.</td>
+          <td>~20-30 min</td>
+        </tr>
+        <tr>
+          <td><strong>Saturday</strong></td>
+          <td>Steady State Incline Jog</td>
+          <td>20-40 min moderate jog, adding 0.5% incline every 5 minutes.</td>
+          <td>~30-50 min</td>
+        </tr>
+        <tr>
+          <td><strong>Sunday</strong></td>
+          <td>Recovery / Optional Walk</td>
+          <td>Rest day or easy walk + mobility work to improve recovery for the next week.</td>
+          <td>20-30 min optional</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="card">
+    <h2>Session Library (swap options)</h2>
+    <p class="muted">Use these to rotate workouts while keeping the same weekly structure.</p>
+    <div class="session-grid">
+      <article>
+        <h3>15-Minute Stamina Booster</h3>
+        <ul>
+          <li>1 min walk</li>
+          <li>1 min easy jog with 20-second speed pickups</li>
+          <li>6 rounds: 30 sec jog / 15 sec sprint</li>
+          <li>45 sec walk recovery between rounds</li>
+        </ul>
+      </article>
+      <article>
+        <h3>Incline Pyramid</h3>
+        <ul>
+          <li>Increase incline by 1% every 1-2 minutes</li>
+          <li>Peak around 10-12%</li>
+          <li>Decrease by 1% every 1-2 minutes back down</li>
+        </ul>
+      </article>
+      <article>
+        <h3>HIIT Hill Sprint</h3>
+        <ul>
+          <li>3-4 rounds total</li>
+          <li>2 min hard run at 5-10% incline</li>
+          <li>1 min walk recovery</li>
+        </ul>
+      </article>
+      <article>
+        <h3>12-3-30 Baseline</h3>
+        <ul>
+          <li>12% incline</li>
+          <li>3 mph</li>
+          <li>30 minutes continuous walking</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="card tips">
+    <h2>Execution Rules</h2>
+    <ul>
+      <li><strong>Warm-up/cool-down:</strong> 5 minutes easy walk or jog before and after hard sessions.</li>
+      <li><strong>Recovery:</strong> Keep HIIT to 2-3 days per week; use incline/tempo work between intense days.</li>
+      <li><strong>Form:</strong> Avoid holding handrails to preserve training effect and natural gait mechanics.</li>
+      <li><strong>Progression:</strong> Increase speed, incline, or rounds gradually (one variable at a time each week).</li>
+    </ul>
+  </section>
+</main>
+</body>
+</html>
