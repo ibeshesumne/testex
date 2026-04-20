@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pelvic Floor Core Piston Animation Guide — Notes</title>
+  <link rel="stylesheet" href="../shared/ufan-preamble.css" />
+  <link rel="stylesheet" href="notes.css" />
+  <style>
+    .color-swatch {
+      display: inline-block;
+      width: 14px; height: 14px;
+      border-radius: 3px;
+      vertical-align: middle;
+      margin-right: 0.3em;
+      border: 1px solid var(--border);
+    }
+    .callout {
+      background: var(--surface);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 6px 6px 0;
+      padding: 0.7rem 1rem;
+      margin: 1rem 0;
+      font-size: 0.92rem;
+    }
+    .callout-purple {
+      border-left-color: #7B1FA2;
+      background: #F3E5F5;
+    }
+    .callout-purple strong { color: #7B1FA2; }
+    .callout-teal {
+      border-left-color: #00796B;
+      background: #E0F2F1;
+    }
+    .callout-teal strong { color: #00796B; }
+    .launch-link {
+      display: inline-block;
+      padding: 0.5rem 1.2rem;
+      background: #7B1FA2;
+      color: #fff;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.92rem;
+      text-decoration: none;
+      margin: 0.75rem 0;
+      transition: background 0.15s;
+    }
+    .launch-link:hover { background: #6A1B9A; text-decoration: none; }
+    .launch-link-teal {
+      background: #00796B;
+    }
+    .launch-link-teal:hover { background: #00695C; }
+    kbd {
+      display: inline-block;
+      padding: 0.1em 0.45em;
+      font-family: "SF Mono", "Fira Code", Consolas, monospace;
+      font-size: 0.82em;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--text);
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <p class="date-tag">16 Apr 2026</p>
+    <h1>Pelvic Floor — Core Piston Animation Guide (v5)</h1>
+
+    <p>A frame-by-frame animated <strong>sagittal cross-section</strong> of the core pressure canister during one full breath-coordinated pelvic floor cycle. Unlike the lever-based exercises (lateral raise, overhead extension), the pelvic floor operates as a <strong>pressure-management system</strong> — no joint pivot, no moment arm, no torque ∝ sin(θ).</p>
+
+    <a class="launch-link" href="pelvic_floor_v5.html">▶ Open the Animation</a>
+    <a class="launch-link launch-link-teal" href="pelvic_floor_measurement_guide.html">📐 Measurement &amp; Alignment Guide</a>
+
+    <h2>How This Differs from the Other Exercises</h2>
+
+    <p>The lateral raise and overhead extension animations show <strong>lever systems</strong> — a joint pivot, a bone rotating, and forces creating torque proportional to sin(θ). The pelvic floor is fundamentally different: the diaphragm and pelvic floor form a coordinated <strong>core piston</strong>. The "engagement level" (0%–100%) replaces joint angle as the primary variable.</p>
+
+    <h2>What It Shows</h2>
+
+    <p>Each frame pairs a canister diagram (top) with a demand/capacity chart and coaching text (bottom). The animation cycles through four phases:</p>
+    <ol>
+      <li><strong>Concentric / Exhale</strong> — diaphragm ascends, PF lifts and contracts</li>
+      <li><strong>Isometric hold</strong> (top) — full engagement maintained</li>
+      <li><strong>Eccentric / Inhale</strong> — diaphragm descends, PF lengthens under controlled eccentric load</li>
+      <li><strong>Isometric hold</strong> (bottom) — PF at rest in lengthened position</li>
+    </ol>
+
+    <h2>Playback Controls</h2>
+    <table>
+      <thead><tr><th>Control</th><th>Action</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Play / Pause</strong> button</td><td>Auto-advance through all frames</td></tr>
+        <tr><td><strong>«</strong> / <strong>»</strong></td><td>Jump to first / last frame</td></tr>
+        <tr><td><strong>‹</strong> / <strong>›</strong></td><td>Step one frame backward / forward</td></tr>
+        <tr><td><strong>Slider</strong></td><td>Drag to scrub to any point in the cycle</td></tr>
+        <tr><td><strong>Speed</strong> dropdown</td><td>0.5×, 1×, 1.5×, 2×, or 4× playback</td></tr>
+        <tr><td><kbd>Space</kbd></td><td>Play / pause</td></tr>
+        <tr><td><kbd>←</kbd> / <kbd>→</kbd></td><td>Step backward / forward</td></tr>
+        <tr><td><kbd>Home</kbd> / <kbd>End</kbd></td><td>Jump to first / last frame</td></tr>
+      </tbody>
+    </table>
+    <p>Below the slider, a <strong>frame label</strong> shows the current frame number and engagement level (e.g., "Frame 08/34 — 45.0°"), and a <strong>phase badge</strong> displays the current phase:</p>
+    <ul>
+      <li><span class="color-swatch" style="background:#bbdefb;"></span> Blue — Exhale (PF lifts)</li>
+      <li><span class="color-swatch" style="background:#ffcdd2;"></span> Red — Inhale (PF lengthens)</li>
+      <li><span class="color-swatch" style="background:#fff9c4;"></span> Amber — Isometric (hold)</li>
+    </ul>
+
+    <h2>Reading the Canister Diagram (Upper Panel)</h2>
+    <p>The upper panel is a 2D sagittal schematic of the core pressure system.</p>
+
+    <h3>Structural Elements</h3>
+    <table>
+      <thead><tr><th>Element</th><th>Appearance</th><th>What It Is</th></tr></thead>
+      <tbody>
+        <tr><td>Vertical bar with dots (left)</td><td><span class="color-swatch" style="background:#8B7355;"></span> Brown</td><td>Spine — the posterior wall of the canister; dots represent vertebrae</td></tr>
+        <tr><td>Curved line (right)</td><td><span class="color-swatch" style="background:#FFDAB9;"></span> Peach</td><td>Abdominal wall — the anterior wall; bulges slightly on inhale</td></tr>
+        <tr><td>Horizontal lines (top)</td><td>Light brown</td><td>Ribcage arches — the rigid top frame</td></tr>
+        <tr><td>Angled lines (bottom)</td><td>Brown</td><td>Pelvis — iliac wings, sacrum, and pubic symphysis forming the bony ring</td></tr>
+        <tr><td>Curved dome (upper)</td><td><span class="color-swatch" style="background:#00897B;"></span> <strong>Teal</strong></td><td>Diaphragm — the muscular dome separating thorax from abdomen</td></tr>
+        <tr><td>Curved dome (lower)</td><td><span class="color-swatch" style="background:#7B1FA2;"></span> <strong>Purple</strong></td><td>Pelvic floor — the muscular sling spanning the pelvic outlet</td></tr>
+        <tr><td>Filled area between domes</td><td>Light brown</td><td>Visceral contents — the organs whose weight presses down on the PF</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Dynamic Behaviour</h3>
+    <table>
+      <thead><tr><th>Parameter</th><th>Inhale (0% engagement)</th><th>Exhale (100% engagement)</th></tr></thead>
+      <tbody>
+        <tr><td>Diaphragm</td><td>Descends, dome flattens</td><td>Ascends, dome restores</td></tr>
+        <tr><td>Pelvic floor</td><td>Descends, dome flattens (eccentric)</td><td>Lifts, dome restores (concentric)</td></tr>
+        <tr><td>Abdominal wall</td><td>Bulges slightly outward</td><td>Draws inward</td></tr>
+        <tr><td>IAP arrows (forces mode)</td><td>Large, radiating outward</td><td>Small, managed</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Force Vectors (Forces Mode)</h3>
+    <table>
+      <thead><tr><th>Arrow</th><th>Color</th><th>Label</th><th>Meaning</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Radial arrows from centre</td>
+          <td><span class="color-swatch" style="background:#E65100;"></span> Orange</td>
+          <td>IAP</td>
+          <td>Intra-abdominal pressure — increases on inhale, acts outward on all canister walls</td>
+        </tr>
+        <tr>
+          <td>Upward arrows from PF dome</td>
+          <td><span class="color-swatch" style="background:#7B1FA2;"></span> Purple</td>
+          <td>F<sub>PF</sub> reaction</td>
+          <td>The pelvic floor's reactive support force — must match or exceed the downward load</td>
+        </tr>
+        <tr>
+          <td>Downward arrow from centre</td>
+          <td><span class="color-swatch" style="background:#e53935;"></span> Red</td>
+          <td>F<sub>gravity</sub> (organs)</td>
+          <td>Gravity acting on the visceral mass, constantly pressing down onto the PF</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Live Readouts (Forces Mode)</h3>
+    <table>
+      <thead><tr><th>Readout</th><th>Location</th><th>What It Tells You</th></tr></thead>
+      <tbody>
+        <tr><td><strong>PF Engagement ≈ XX%</strong></td><td>Top-left</td><td>Current pelvic floor engagement level</td></tr>
+        <tr><td><strong>IAP load ~ 0.XX</strong></td><td>Left side</td><td>How much IAP the PF must resist (0–1 scale)</td></tr>
+        <tr><td><strong>Dome: STATUS (XX%)</strong></td><td>Left side</td><td>Whether the PF dome is FLATTENED, RESTORING, or OPTIMAL</td></tr>
+        <tr><td><strong>Phase badge</strong></td><td>Top-right</td><td>Current phase (EXHALE / INHALE / HOLD)</td></tr>
+        <tr><td><strong>ECCENTRIC CONTROL ZONE</strong></td><td>Bottom-centre, pink banner</td><td>Appears when engagement is 0–50% — the training-critical zone</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Hip Rotator Inset (Forces &amp; Coaching Modes)</h3>
+    <p>A small top-down view of the pelvic ring in the bottom-right corner shows:</p>
+    <ul>
+      <li>The <strong>pelvic ring</strong> (ellipse) with PF fill inside</li>
+      <li><strong>Hip joints</strong> (dark circles) at each side</li>
+      <li><strong>Obturator internus</strong> connections (green lines) from pelvis to hip</li>
+      <li><strong>External rotation arcs</strong> (green) — hip external rotation pre-tensions the PF</li>
+    </ul>
+    <p>The green lines thicken as engagement increases, showing how hip rotator activation supports the PF.</p>
+
+    <blockquote>Color legend: spine (brown) · abd wall (peach) · teal = diaphragm · purple = pelvic floor · orange = IAP · red = gravity</blockquote>
+
+    <h2>Reading the Charts (Lower Panel)</h2>
+
+    <h3>Left Chart — IAP Demand vs. PF Force-Length Capacity</h3>
+    <p>Two curves plotted against engagement level:</p>
+    <table>
+      <thead><tr><th>Curve</th><th>Color</th><th>What It Represents</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>IAP Demand</strong></td>
+          <td><span class="color-swatch" style="background:#e74c3c;"></span> Red</td>
+          <td>How much downward/outward pressure the PF must resist at each engagement level — highest at 0% (deep inhale) and drops as exhale proceeds</td>
+        </tr>
+        <tr>
+          <td><strong>Force-Length Capacity</strong></td>
+          <td><span class="color-swatch" style="background:#1565c0;"></span> Blue</td>
+          <td>The PF's ability to produce force at each length — peaks around 42° (mid-range) and drops at extremes</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>A <strong>vertical green marker</strong> tracks the current frame's engagement level. The background is divided into three zones:</p>
+    <ul>
+      <li><span class="color-swatch" style="background:#bbdefb;"></span> <strong>Blue zone</strong> (0–30°) — lengthened; PF descended, dome flat, IAP high — most challenging</li>
+      <li><span class="color-swatch" style="background:#c8e6c9;"></span> <strong>Green zone</strong> (30–60°) — mid-range; dome restoring, PF near peak capacity</li>
+      <li><span class="color-swatch" style="background:#ffe0b2;"></span> <strong>Orange zone</strong> (60–90°) — shortened / engaged; dome restored, IAP managed, lower demand</li>
+    </ul>
+
+    <h3>Right Panel — Coaching Text</h3>
+    <p>Phase-specific biomechanical coaching that changes with every frame:</p>
+    <ul>
+      <li>At 10% exhale — explains the PF is beginning to lift from its lengthened position and IAP load is still significant</li>
+      <li>At 60% exhale — notes the PF is in its strongest force-producing range and the dome is being restored</li>
+      <li>At 20% inhale — emphasises the PF must yield in a controlled way, like a trampoline absorbing force</li>
+      <li>At relaxed hold — points out that isometric endurance in the lengthened position builds resilience</li>
+    </ul>
+
+    <div class="callout callout-purple">
+      <strong>Eccentric control on inhale is the key.</strong><br />
+      The PF must lengthen under IAP load without giving way — like a trampoline absorbing force.<br />
+      ⚡ 0–50° = ECCENTRIC CONTROL ZONE
+    </div>
+
+    <h2>Key Biomechanical Concepts</h2>
+
+    <h3>1. The Dome (Geometry of Pressure)</h3>
+    <p>The pelvic floor is most efficient when it maintains its natural <strong>dome shape</strong>. Like an arched bridge, a domed PF distributes pressure across its surface rather than concentrating force at weak points. When the PF is flattened (tucked pelvis, chronic tension, end of deep inhale), the muscle fibres are at an inefficient length-tension relationship.</p>
+
+    <h3>2. The Core Piston</h3>
+    <p>The diaphragm and pelvic floor function as a coordinated <strong>piston pair</strong>:</p>
+    <ul>
+      <li><strong>Inhale:</strong> diaphragm descends → IAP increases → PF must eccentrically lengthen to accept the pressure</li>
+      <li><strong>Exhale:</strong> diaphragm ascends → IAP decreases → PF concentrically contracts and lifts</li>
+    </ul>
+    <p>Improvement comes from <strong>eccentric control</strong> — the PF's ability to lengthen under load without giving way. This is like training a controlled negative in a biceps curl.</p>
+
+    <h3>3. Hip Integration</h3>
+    <p>The pelvic floor muscles share fascia with the <strong>obturator internus</strong> (a deep hip external rotator). Exercises involving hip external rotation (clamshells, certain squat stances) pre-tension the PF by shortening the effective radius of the pelvic sling.</p>
+
+    <h3>4. The Trampoline Analogy</h3>
+    <div class="callout callout-teal">
+      <strong>The PF is not a muscle you "squeeze" — it is a trampoline.</strong><br />
+      <strong>Springs</strong> (muscles) need appropriate tension — too tight and it can't absorb; too loose and it can't support.<br />
+      <strong>Frame</strong> (pelvis) must be aligned — neutral pelvis with sit-bones wide.<br />
+      Function is to <strong>bounce and absorb</strong>, not to clamp rigidly.
+    </div>
+
+    <h3>5. Eccentric Phase Is the Functional Driver</h3>
+    <p>Unlike the other exercises where eccentric training drives hypertrophy:</p>
+    <ul>
+      <li>Eccentric PF control determines resilience during coughing, sneezing, jumping, and lifting</li>
+      <li>Slow, controlled inhales (4–5 seconds) with conscious PF descent train this capacity</li>
+      <li>The 0–50% engagement zone (deep inhale territory) is where the PF is most challenged</li>
+    </ul>
+
+    <h3>Optimal Tempo for One Breath Cycle</h3>
+    <table>
+      <thead><tr><th>Phase</th><th>Time</th><th>Rationale</th></tr></thead>
+      <tbody>
+        <tr><td>Exhale with PF lift</td><td>3–4 s</td><td>Controlled, coordinate diaphragm ascent with PF contraction</td></tr>
+        <tr><td>Hold engaged</td><td>1–2 s</td><td>Brief hold at full dome — build awareness</td></tr>
+        <tr><td>Inhale with PF lengthening</td><td>4–5 s</td><td>Slow eccentric descent — the critical training phase</td></tr>
+        <tr><td>Hold relaxed</td><td>1–2 s</td><td>Rest in lengthened position — train isometric endurance</td></tr>
+      </tbody>
+    </table>
+    <p>Target <strong>ecc:con ratio ≥ 1.5</strong> (e.g., 4.5 s inhale, 3 s exhale).</p>
+
+    <h3>Postural Alignment Matters</h3>
+    <p>The piston only works efficiently when the ribcage is <strong>stacked over the pelvis</strong>. If the ribcage flares forward or the pelvis tucks, the diaphragm and PF are no longer parallel — pressure leaks laterally instead of being managed vertically. Neutral spine = 100% piston efficiency.</p>
+
+    <p class="back"><a href="index.html">← All notes</a> · <a href="../index.html">← All routines</a></p>
+  </div>
+</body>
+</html>
