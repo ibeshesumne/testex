@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Pelvic Floor — Postural Alignment &amp; Assessment Guide</title>
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
+    background: #f5f5f5; color: #1a1a2e;
+    display: flex; flex-direction: column; align-items: center;
+    padding: 24px 16px 60px;
+    line-height: 1.55;
+  }
+  h1 { font-size: 1.5rem; margin-bottom: 4px; }
+  .subtitle { font-size: 0.95rem; color: #666; margin-bottom: 20px; }
+  .layout {
+    display: flex; gap: 32px; max-width: 1100px; width: 100%;
+    align-items: flex-start; flex-wrap: wrap; justify-content: center;
+  }
+  .figure-panel {
+    flex: 0 0 420px; position: relative;
+    background: #fff; border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    padding: 16px 12px 12px;
+  }
+  .figure-panel h2 { font-size: 0.95rem; text-align: center; margin-bottom: 8px; color: #444; }
+  svg.body-diagram { display: block; margin: 0 auto; }
+  .info-panel {
+    flex: 1 1 400px; min-width: 320px;
+    display: flex; flex-direction: column; gap: 14px;
+  }
+  .mcard {
+    background: #fff; border-radius: 10px;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.07);
+    padding: 14px 16px;
+    border-left: 4px solid #ccc;
+    cursor: pointer;
+    transition: border-color .15s, box-shadow .15s;
+  }
+  .mcard:hover, .mcard.active { box-shadow: 0 2px 12px rgba(0,0,0,0.13); }
+  .mcard h3 { font-size: 0.92rem; margin-bottom: 4px; display: flex; align-items: center; gap: 8px; }
+  .mcard h3 .num {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 22px; height: 22px; border-radius: 50%;
+    font-size: 0.75rem; font-weight: 700; color: #fff;
+  }
+  .mcard p { font-size: 0.84rem; color: #444; }
+  .mcard .how { font-size: 0.8rem; color: #666; margin-top: 4px; font-style: italic; }
+  .mcard .used { font-size: 0.78rem; color: #888; margin-top: 3px; }
+  .mcard .csv-field { font-family: "SF Mono", Menlo, monospace; font-size: 0.78rem;
+                      background: #f0f0f0; padding: 2px 6px; border-radius: 4px; color: #555; }
+
+  .m-pelvis    { border-left-color: #7B1FA2; }  .m-pelvis    h3 .num { background: #7B1FA2; }
+  .m-ribcage   { border-left-color: #00897B; }  .m-ribcage   h3 .num { background: #00897B; }
+  .m-sitbones  { border-left-color: #E53935; }  .m-sitbones  h3 .num { background: #E53935; }
+  .m-breath    { border-left-color: #1565C0; }  .m-breath    h3 .num { background: #1565C0; }
+  .m-hips      { border-left-color: #43A047; }  .m-hips      h3 .num { background: #43A047; }
+  .m-bw        { border-left-color: #FB8C00; }  .m-bw        h3 .num { background: #FB8C00; }
+
+  .mcard.active.m-pelvis    { border-left-color: #7B1FA2; background: #F3E5F5; }
+  .mcard.active.m-ribcage   { border-left-color: #00897B; background: #E0F2F1; }
+  .mcard.active.m-sitbones  { border-left-color: #E53935; background: #FFEBEE; }
+  .mcard.active.m-breath    { border-left-color: #1565C0; background: #E3F2FD; }
+  .mcard.active.m-hips      { border-left-color: #43A047; background: #E8F5E9; }
+  .mcard.active.m-bw        { border-left-color: #FB8C00; background: #FFF3E0; }
+
+  .measure-line { opacity: 0; transition: opacity .2s; }
+  .measure-line.show { opacity: 1; }
+
+  .auto-note {
+    background: #F3E5F5; border: 1px solid #CE93D8; border-radius: 8px;
+    padding: 12px 16px; font-size: 0.84rem; color: #555; max-width: 1100px; width: 100%;
+    margin-top: 18px;
+  }
+  .auto-note strong { color: #6A1B9A; }
+
+  .equation-box {
+    background: #eef2f7; border: 1px solid #90a4ae; border-radius: 8px;
+    padding: 14px 18px; font-family: "SF Mono", Menlo, monospace;
+    font-size: 0.88rem; line-height: 1.7; max-width: 1100px; width: 100%;
+    margin-top: 12px; color: #263238;
+  }
+</style>
+</head>
+<body>
+
+<h1>Pelvic Floor &mdash; Postural Alignment &amp; Assessment Guide</h1>
+<p class="subtitle">How to check alignment for optimal PF function &middot; hover / tap each card to highlight on the figure</p>
+
+<div class="layout">
+
+<!-- ─── SVG FIGURE ─── -->
+<div class="figure-panel">
+  <h2>Sagittal view &mdash; standing neutral posture</h2>
+  <svg class="body-diagram" viewBox="0 0 400 560" width="396" height="560" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <marker id="arr" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+        <path d="M0,0 L8,3 L0,6 Z" fill="#333"/>
+      </marker>
+    </defs>
+
+    <!-- BODY OUTLINE — sagittal view, facing right -->
+    <!-- head -->
+    <ellipse cx="200" cy="60" rx="28" ry="34" fill="#f5dcc0" stroke="#c9a87c" stroke-width="1.5"/>
+    <ellipse cx="228" cy="58" rx="5" ry="9" fill="#ebd0b0" stroke="#c9a87c" stroke-width="1"/>
+    <!-- neck -->
+    <rect x="190" y="90" width="22" height="22" rx="6" fill="#f5dcc0" stroke="none"/>
+
+    <!-- torso with subtle spine curve -->
+    <path d="M168,112 Q162,120 158,180 L155,320 Q155,330 170,332 L238,332
+             Q252,330 252,320 L248,180 Q245,120 238,112 Z"
+          fill="#f0dcc8" stroke="#c9a87c" stroke-width="1.5"/>
+
+    <!-- spine line (subtle S-curve) -->
+    <path d="M203,108 Q208,140 206,180 Q204,220 208,260 Q212,300 210,330"
+          fill="none" stroke="#d4a574" stroke-width="2" stroke-dasharray="4,3" opacity="0.5"/>
+
+    <!-- ribcage outline -->
+    <path d="M172,130 Q168,145 170,200 L240,200 Q242,145 238,130"
+          fill="none" stroke="#c9a87c" stroke-width="1" stroke-dasharray="3,3" opacity="0.4"/>
+
+    <!-- PELVIS (bowl shape) -->
+    <path d="M165,295 Q160,310 170,332 L240,332 Q250,310 245,295"
+          fill="#e8d5c0" stroke="#c9a87c" stroke-width="1.5"/>
+    <!-- iliac crests -->
+    <path d="M165,295 Q175,285 200,282 Q225,285 245,295"
+          fill="none" stroke="#b08968" stroke-width="2"/>
+
+    <!-- PELVIC FLOOR (dome at bottom of pelvis) -->
+    <path d="M175,330 Q200,342 235,330"
+          fill="none" stroke="#7B1FA2" stroke-width="2.5" stroke-linecap="round"/>
+
+    <!-- DIAPHRAGM (dome at ribcage base) -->
+    <path d="M172,200 Q200,188 238,200"
+          fill="none" stroke="#00897B" stroke-width="2.5" stroke-linecap="round"/>
+
+    <!-- arms (simplified) -->
+    <line x1="170" y1="120" x2="158" y2="230" stroke="#f0d0b0" stroke-width="20" stroke-linecap="round"/>
+    <line x1="170" y1="120" x2="158" y2="230" stroke="#c9a87c" stroke-width="1.2"/>
+    <line x1="158" y1="228" x2="152" y2="310" stroke="#f0d0b0" stroke-width="16" stroke-linecap="round"/>
+    <line x1="158" y1="228" x2="152" y2="310" stroke="#c9a87c" stroke-width="1"/>
+
+    <line x1="238" y1="120" x2="250" y2="230" stroke="#f0d0b0" stroke-width="20" stroke-linecap="round"/>
+    <line x1="238" y1="120" x2="250" y2="230" stroke="#c9a87c" stroke-width="1.2"/>
+    <line x1="250" y1="228" x2="256" y2="310" stroke="#f0d0b0" stroke-width="16" stroke-linecap="round"/>
+    <line x1="250" y1="228" x2="256" y2="310" stroke="#c9a87c" stroke-width="1"/>
+
+    <!-- legs -->
+    <rect x="170" y="335" width="30" height="120" rx="14" fill="#f0d0b0" stroke="#c9a87c" stroke-width="1.2"/>
+    <rect x="208" y="335" width="30" height="120" rx="14" fill="#f0d0b0" stroke="#c9a87c" stroke-width="1.2"/>
+    <ellipse cx="185" cy="460" rx="18" ry="7" fill="#f0d0b0" stroke="#c9a87c" stroke-width="1"/>
+    <ellipse cx="223" cy="460" rx="18" ry="7" fill="#f0d0b0" stroke="#c9a87c" stroke-width="1"/>
+
+    <!-- gravity line (plumb from head) -->
+    <line x1="200" y1="30" x2="200" y2="470" stroke="#aaa" stroke-width="0.8" stroke-dasharray="6,4" opacity="0.4"/>
+
+    <!-- sit-bone dots -->
+    <circle cx="178" cy="334" r="5" fill="#E53935" opacity="0.8"/>
+    <circle cx="232" cy="334" r="5" fill="#E53935" opacity="0.8"/>
+
+    <!-- hip rotator zone (lateral hip area) -->
+    <ellipse cx="248" cy="310" rx="14" ry="20" fill="none" stroke="#43A047" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.5"/>
+
+    <!-- LANDMARK LABELS -->
+    <!-- A = ribcage alignment point -->
+    <circle cx="206" cy="160" r="5" fill="#00897B" opacity="0.9"/>
+    <text x="218" y="164" text-anchor="start" font-size="10" font-weight="700" fill="#00897B">A</text>
+
+    <!-- B = pelvis tilt point -->
+    <circle cx="208" cy="295" r="5" fill="#7B1FA2" opacity="0.9"/>
+    <text x="220" y="299" text-anchor="start" font-size="10" font-weight="700" fill="#7B1FA2">B</text>
+
+    <!-- C = sit-bones -->
+    <text x="160" y="340" text-anchor="end" font-size="9" font-weight="700" fill="#E53935">C</text>
+    <text x="250" y="340" text-anchor="start" font-size="9" font-weight="700" fill="#E53935">C</text>
+
+    <!-- D = diaphragm label -->
+    <text x="140" y="196" text-anchor="end" font-size="9" font-weight="700" fill="#1565C0">D</text>
+
+    <!-- E = hip rotator zone -->
+    <text x="268" y="314" text-anchor="start" font-size="9" font-weight="700" fill="#43A047">E</text>
+
+    <!-- PF label -->
+    <text x="200" y="353" text-anchor="middle" font-size="8" font-weight="700" fill="#7B1FA2">PF dome</text>
+    <!-- Diaphragm label -->
+    <text x="200" y="185" text-anchor="middle" font-size="8" font-weight="700" fill="#00897B">Diaphragm</text>
+
+    <!-- ─── MEASUREMENT HIGHLIGHT LINES ─── -->
+
+    <!-- 1  Pelvic tilt: ASIS to pubic symphysis alignment -->
+    <g class="measure-line" data-m="pelvis">
+      <path d="M165,290 Q155,315 175,335" fill="none" stroke="#7B1FA2" stroke-width="2.5" stroke-dasharray="6,3"/>
+      <path d="M245,290 Q255,315 235,335" fill="none" stroke="#7B1FA2" stroke-width="2.5" stroke-dasharray="6,3"/>
+      <!-- tilt arc -->
+      <path d="M180,280 A30,30 0 0,1 230,280" fill="none" stroke="#7B1FA2" stroke-width="2" stroke-dasharray="4,3"/>
+      <text x="200" y="272" text-anchor="middle" font-size="10" font-weight="700" fill="#7B1FA2">Neutral tilt</text>
+      <!-- arrows showing anterior/posterior -->
+      <text x="170" y="262" text-anchor="middle" font-size="8" fill="#7B1FA2" opacity="0.7">&larr; ant</text>
+      <text x="232" y="262" text-anchor="middle" font-size="8" fill="#7B1FA2" opacity="0.7">post &rarr;</text>
+    </g>
+
+    <!-- 2  Ribcage-pelvis alignment: vertical line A to B -->
+    <g class="measure-line" data-m="ribcage">
+      <line x1="206" y1="155" x2="208" y2="295" stroke="#00897B" stroke-width="2.5" stroke-dasharray="6,3"/>
+      <line x1="180" y1="155" x2="230" y2="155" stroke="#00897B" stroke-width="1" stroke-dasharray="3,2" opacity="0.4"/>
+      <line x1="180" y1="295" x2="230" y2="295" stroke="#00897B" stroke-width="1" stroke-dasharray="3,2" opacity="0.4"/>
+      <text x="140" y="225" text-anchor="middle" font-size="10" font-weight="700" fill="#00897B" transform="rotate(-90, 140, 225)">Ribcage over pelvis</text>
+    </g>
+
+    <!-- 3  Sit-bones: width between ischial tuberosities -->
+    <g class="measure-line" data-m="sitbones">
+      <line x1="178" y1="340" x2="232" y2="340" stroke="#E53935" stroke-width="2.5" stroke-dasharray="6,3"/>
+      <line x1="178" y1="334" x2="178" y2="348" stroke="#E53935" stroke-width="1.5"/>
+      <line x1="232" y1="334" x2="232" y2="348" stroke="#E53935" stroke-width="1.5"/>
+      <text x="205" y="352" text-anchor="middle" font-size="9" font-weight="700" fill="#E53935">Sit-bone width</text>
+    </g>
+
+    <!-- 4  Breath pattern: diaphragm dome + arrows -->
+    <g class="measure-line" data-m="breath">
+      <!-- diaphragm highlight -->
+      <path d="M172,200 Q200,184 238,200" fill="none" stroke="#1565C0" stroke-width="3"/>
+      <!-- PF highlight -->
+      <path d="M175,330 Q200,345 235,330" fill="none" stroke="#1565C0" stroke-width="3"/>
+      <!-- piston arrows -->
+      <line x1="200" y1="208" x2="200" y2="240" stroke="#1565C0" stroke-width="2" marker-end="url(#arr)"/>
+      <line x1="200" y1="322" x2="200" y2="290" stroke="#1565C0" stroke-width="2" marker-end="url(#arr)"/>
+      <text x="215" y="265" text-anchor="start" font-size="9" font-weight="700" fill="#1565C0">Core piston</text>
+    </g>
+
+    <!-- 5  Hip rotators: obturator internus zone -->
+    <g class="measure-line" data-m="hips">
+      <ellipse cx="165" cy="310" rx="16" ry="22" fill="#43A047" opacity="0.15" stroke="#43A047" stroke-width="2"/>
+      <ellipse cx="248" cy="310" rx="16" ry="22" fill="#43A047" opacity="0.15" stroke="#43A047" stroke-width="2"/>
+      <text x="280" y="308" text-anchor="start" font-size="9" font-weight="700" fill="#43A047">Obturator</text>
+      <text x="280" y="320" text-anchor="start" font-size="9" font-weight="700" fill="#43A047">internus</text>
+    </g>
+
+    <!-- 6  Bodyweight outline -->
+    <g class="measure-line" data-m="bw">
+      <rect x="142" y="20" width="120" height="452" rx="12" fill="none" stroke="#FB8C00" stroke-width="2.5" stroke-dasharray="8,4"/>
+      <text x="202" y="486" text-anchor="middle" font-size="11" font-weight="700" fill="#FB8C00">Bodyweight (scale)</text>
+    </g>
+
+    <!-- Legend -->
+    <g transform="translate(260,472)">
+      <rect x="0" y="0" width="130" height="80" rx="6" fill="#fff" stroke="#ddd" stroke-width="1"/>
+      <circle cx="12" cy="14" r="4" fill="#00897B"/> <text x="22" y="18" font-size="8.5" fill="#444">A = Ribcage ref</text>
+      <circle cx="12" cy="28" r="4" fill="#7B1FA2"/> <text x="22" y="32" font-size="8.5" fill="#444">B = Pelvic tilt</text>
+      <circle cx="12" cy="42" r="4" fill="#E53935"/> <text x="22" y="46" font-size="8.5" fill="#444">C = Sit-bones</text>
+      <circle cx="12" cy="56" r="4" fill="#1565C0"/> <text x="22" y="60" font-size="8.5" fill="#444">D = Diaphragm</text>
+      <circle cx="12" cy="70" r="4" fill="#43A047"/> <text x="22" y="74" font-size="8.5" fill="#444">E = Hip rotator zone</text>
+    </g>
+  </svg>
+</div>
+
+<!-- ─── ASSESSMENT CARDS ─── -->
+<div class="info-panel">
+
+  <div class="mcard m-pelvis" data-m="pelvis">
+    <h3><span class="num">1</span> Pelvic tilt (neutral check)</h3>
+    <p>The pelvis should be in a <strong>neutral position</strong> &mdash; neither anteriorly tilted (arched low back) nor posteriorly tilted (tucked tailbone). The ASIS and pubic symphysis should be roughly in the same vertical plane.</p>
+    <div class="how">How: Stand sideways to a mirror. Place one hand on hip bones (ASIS) and one on pubic bone. They should be nearly vertically aligned.</div>
+    <div class="used">Why: Neutral pelvis maintains the PF dome shape for optimal force distribution. Tucking flattens the dome. <span class="csv-field">position</span></div>
+  </div>
+
+  <div class="mcard m-ribcage" data-m="ribcage">
+    <h3><span class="num">2</span> Ribcage-over-pelvis alignment</h3>
+    <p>The lower ribcage should sit directly above the pelvis &mdash; not flared forward or collapsed backward. This aligns the diaphragm directly above the PF to form an efficient <strong>core piston</strong>.</p>
+    <div class="how">How: Side view &mdash; lower ribs should stack over the iliac crests. If ribs flare forward, gently exhale and allow them to drop.</div>
+    <div class="used">Why: Misaligned piston = pressure leaks sideways instead of transmitting evenly through the PF.</div>
+  </div>
+
+  <div class="mcard m-sitbones" data-m="sitbones">
+    <h3><span class="num">3</span> Sit-bone awareness (ischial tuberosity width)</h3>
+    <p>When seated, you should feel <strong>both sit-bones equally</strong>, with a sense of width between them. This means the PF is in a lengthened, domed position rather than gripped.</p>
+    <div class="how">How: Sit on a firm surface. Rock side to side until you feel both bony points. Gently widen them apart (imagine growing your sit-bones wider).</div>
+    <div class="used">Why: Widened sit-bones = trampoline springs at optimal tension. Clenched = springs too tight to absorb.</div>
+  </div>
+
+  <div class="mcard m-breath" data-m="breath">
+    <h3><span class="num">4</span> Breath pattern (diaphragmatic vs chest)</h3>
+    <p>Proper PF training requires <strong>360&deg; diaphragmatic breathing</strong> &mdash; ribs expand laterally and belly gently expands, rather than chest-only shallow breathing.</p>
+    <div class="how">How: Place hands on lower ribs. Inhale &mdash; feel ribs push hands outward. Belly should gently expand. Shoulders should NOT rise.</div>
+    <div class="used">Why: Chest breathing bypasses the core piston entirely. Only diaphragmatic breathing drives PF coordination. <span class="csv-field">inhale_sec</span> <span class="csv-field">exhale_sec</span></div>
+  </div>
+
+  <div class="mcard m-hips" data-m="hips">
+    <h3><span class="num">5</span> Hip rotator engagement (obturator internus)</h3>
+    <p>The deep hip rotators share fascia with the PF. External rotation exercises <strong>pre-tension the PF</strong>, making the pelvic bowl more stable under load.</p>
+    <div class="how">How: Standing &mdash; gently rotate feet outward without moving knees. You should feel a subtle engagement deep in the hip/pelvis.</div>
+    <div class="used">Why: Engaging hip rotators shortens the "radius" the PF must support, increasing rigidity of the pelvic ring.</div>
+  </div>
+
+  <div class="mcard m-bw" data-m="bw">
+    <h3><span class="num">6</span> Bodyweight</h3>
+    <p>Used as a scaling input for a <strong>pelvic load index</strong>. This guide uses an adjustable pelvic-contents fraction (default 1.0% of BW; typical range 0.5-1.5%).</p>
+    <div class="how">How: Bathroom scale, morning, minimal clothing</div>
+    <div class="used">Why: m<sub>contents</sub> = pelvic_contents_fraction &times; BW &nbsp; <span class="csv-field">bodyweight_kg</span></div>
+  </div>
+
+</div>
+</div>
+
+<!-- POSITION & ACTIVITY REFERENCE TABLES -->
+<div style="display:flex; gap:24px; max-width:1100px; width:100%; margin-top:18px; flex-wrap:wrap;">
+
+  <div style="flex:1 1 520px; background:#fff; border-radius:10px; box-shadow:0 1px 6px rgba(0,0,0,0.07); padding:16px; border-left:4px solid #7B1FA2;">
+    <h3 style="font-size:0.95rem; color:#7B1FA2; margin-bottom:8px;">Position codes &mdash; <em>where</em> you train (gravity on PF)</h3>
+    <table style="width:100%; border-collapse:collapse; font-size:0.84rem;">
+      <tr style="background:#F3E5F5;">
+        <th style="padding:6px 8px; text-align:center; border:1px solid #E1BEE7;">Code</th>
+        <th style="padding:6px 8px; text-align:left; border:1px solid #E1BEE7;">Position</th>
+        <th style="padding:6px 8px; text-align:center; border:1px solid #E1BEE7;">PF Load Index (illustrative)</th>
+        <th style="padding:6px 8px; text-align:left; border:1px solid #E1BEE7;">Why</th>
+      </tr>
+      <tr>
+        <td style="padding:5px 8px; text-align:center; border:1px solid #eee; font-weight:700; color:#7B1FA2;">1</td>
+        <td style="padding:5px 8px; border:1px solid #eee;">Supine (lying face up)</td>
+        <td style="padding:5px 8px; text-align:center; border:1px solid #eee;">~0.3&times;</td>
+        <td style="padding:5px 8px; border:1px solid #eee; color:#666;">Gravity assists &mdash; organs press sideways, not down through PF</td>
+      </tr>
+      <tr style="background:#FAFAFA;">
+        <td style="padding:5px 8px; text-align:center; border:1px solid #eee; font-weight:700; color:#7B1FA2;">2</td>
+        <td style="padding:5px 8px; border:1px solid #eee;">Seated</td>
+        <td style="padding:5px 8px; text-align:center; border:1px solid #eee;">~0.6&times;</td>
+        <td style="padding:5px 8px; border:1px solid #eee; color:#666;">Partial gravitational load on PF</td>
+      </tr>
+      <tr>
+        <td style="padding:5px 8px; text-align:center; border:1px solid #eee; font-weight:700; color:#7B1FA2;">3</td>
+        <td style="padding:5px 8px; border:1px solid #eee;">Standing</td>
+        <td style="padding:5px 8px; text-align:center; border:1px solid #eee; font-weight:700;">1.0&times;</td>
+        <td style="padding:5px 8px; border:1px solid #eee; color:#666;">Full gravitational load (baseline reference)</td>
+      </tr>
+      <tr style="background:#FAFAFA;">
+        <td style="padding:5px 8px; text-align:center; border:1px solid #eee; font-weight:700; color:#7B1FA2;">4</td>
+        <td style="padding:5px 8px; border:1px solid #eee;">Single-leg stance</td>
+        <td style="padding:5px 8px; text-align:center; border:1px solid #eee;">~1.2&times;</td>
+        <td style="padding:5px 8px; border:1px solid #eee; color:#666;">Full gravity + lateral stability challenge for PF</td>
+      </tr>
+      <tr>
+        <td style="padding:5px 8px; text-align:center; border:1px solid #eee; font-weight:700; color:#7B1FA2;">5</td>
+        <td style="padding:5px 8px; border:1px solid #eee;">Loaded (holding weight)</td>
+        <td style="padding:5px 8px; text-align:center; border:1px solid #eee;">~1.4&times;</td>
+        <td style="padding:5px 8px; border:1px solid #eee; color:#666;">Gravity + increased IAP from bracing under load</td>
+      </tr>
+    </table>
+    <div style="font-size:0.78rem; color:#888; margin-top:6px; font-style:italic;">
+      Progression: start supine (easiest) &rarr; build to loaded (hardest). Values are coaching indices, not lab-validated force multipliers.
+    </div>
+  </div>
+
+  <div style="flex:1 1 520px; background:#fff; border-radius:10px; box-shadow:0 1px 6px rgba(0,0,0,0.07); padding:16px; border-left:4px solid #E65100;">
+    <h3 style="font-size:0.95rem; color:#E65100; margin-bottom:8px;">Activity codes &mdash; <em>what</em> spikes IAP demand</h3>
+    <table style="width:100%; border-collapse:collapse; font-size:0.84rem;">
+      <tr style="background:#FFF3E0;">
+        <th style="padding:6px 8px; text-align:center; border:1px solid #FFE0B2;">Code</th>
+        <th style="padding:6px 8px; text-align:left; border:1px solid #FFE0B2;">Activity</th>
+        <th style="padding:6px 8px; text-align:center; border:1px solid #FFE0B2;">IAP Index (illustrative)</th>
+        <th style="padding:6px 8px; text-align:left; border:1px solid #FFE0B2;">Why</th>
+      </tr>
+      <tr>
+        <td style="padding:5px 8px; text-align:center; border:1px solid #eee; font-weight:700; color:#E65100;">1</td>
+        <td style="padding:5px 8px; border:1px solid #eee;">Rest / breathing only</td>
+        <td style="padding:5px 8px; text-align:center; border:1px solid #eee;">1.0&times;</td>
+        <td style="padding:5px 8px; border:1px solid #eee; color:#666;">Baseline &mdash; no extra IAP beyond organ weight</td>
+      </tr>
+      <tr style="background:#FAFAFA;">
+        <td style="padding:5px 8px; text-align:center; border:1px solid #eee; font-weight:700; color:#E65100;">2</td>
+        <td style="padding:5px 8px; border:1px solid #eee;">Cough / sneeze</td>
+        <td style="padding:5px 8px; text-align:center; border:1px solid #eee; font-weight:700; color:#C62828;">~2.5-4.0&times;</td>
+        <td style="padding:5px 8px; border:1px solid #eee; color:#666;">Sudden explosive IAP spike &mdash; PF must absorb reactively</td>
+      </tr>
+      <tr>
+        <td style="padding:5px 8px; text-align:center; border:1px solid #eee; font-weight:700; color:#E65100;">3</td>
+        <td style="padding:5px 8px; border:1px solid #eee;">Jump / run</td>
+        <td style="padding:5px 8px; text-align:center; border:1px solid #eee; font-weight:700; color:#C62828;">~3.0-4.5&times;</td>
+        <td style="padding:5px 8px; border:1px solid #eee; color:#666;">Repeated high-impact bursts &mdash; highest sustained demand</td>
+      </tr>
+      <tr style="background:#FAFAFA;">
+        <td style="padding:5px 8px; text-align:center; border:1px solid #eee; font-weight:700; color:#E65100;">4</td>
+        <td style="padding:5px 8px; border:1px solid #eee;">Deadlift / heavy lift</td>
+        <td style="padding:5px 8px; text-align:center; border:1px solid #eee; font-weight:700; color:#C62828;">~2.0-3.0&times;</td>
+        <td style="padding:5px 8px; border:1px solid #eee; color:#666;">Sustained high IAP with voluntary bracing &mdash; controlled but heavy</td>
+      </tr>
+    </table>
+    <div style="font-size:0.78rem; color:#888; margin-top:6px; font-style:italic;">
+      Position index &times; Activity index = total PF load index. Example: standing (1.0&times;) &times; cough (~3.0&times;) &asymp; ~3.0&times; resting demand.
+    </div>
+  </div>
+
+</div>
+
+<!-- NOTE -->
+<div class="auto-note">
+  <strong>Key difference from lever exercises:</strong><br>
+  There are no bone segment measurements needed. The pelvic floor works as a pressure-management system,
+  not a lever. The inputs are: <code>bodyweight_kg</code>, <code>position</code> (1&ndash;5),
+  <code>activity</code> (1&ndash;4), and <strong>breath tempo</strong>
+  (<code>inhale_sec</code>, <code>exhale_sec</code>, <code>hold_top_sec</code>, <code>hold_bot_sec</code>).<br><br>
+  The critical training variable is <strong>eccentric control time</strong> (inhale duration) &mdash;
+  slow, controlled inhales where the PF lengthens under IAP load.
+</div>
+
+<!-- EQUATION -->
+<div class="equation-box">
+  <strong>PF load model:</strong><br><br>
+  PF_load_index = contents_mass &times; g &times; position_index &times; activity_index<br><br>
+  where:<br>
+  &nbsp;&nbsp;contents_mass &nbsp;= pelvic_contents_fraction &times; bodyweight_kg<br>
+  &nbsp;&nbsp;pelvic_contents_fraction &nbsp;= 0.005-0.015 (default 0.01 for coaching estimates)<br>
+  &nbsp;&nbsp;position_index &nbsp;= {supine: ~0.3, seated: ~0.6, standing: 1.0, single-leg: ~1.2, loaded: ~1.4}<br>
+  &nbsp;&nbsp;activity_index &nbsp;= {rest: 1.0, cough: ~2.5-4.0, jump/run: ~3.0-4.5, deadlift: ~2.0-3.0}<br>
+  &nbsp;&nbsp;g &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= 9.81 m/s&sup2;<br><br>
+  <strong>Quality score:</strong><br>
+  quality = ecc_control_time &times; position_index &times; min(1, ecc_con_ratio / 2.0)<br><br>
+  <span style="font-family: -apple-system, &quot;Helvetica Neue&quot;, Arial, sans-serif; font-size: 0.8rem; color:#455A64;">
+    Notes: position/activity values are illustrative coaching ranges (not direct instrumented pressure multipliers). IAP ranges vary by task, technique, and individual.
+  </span>
+</div>
+
+<script>
+const cards = document.querySelectorAll('.mcard');
+const lines = document.querySelectorAll('.measure-line');
+
+function highlight(mKey, on) {
+  lines.forEach(l => {
+    if (l.dataset.m === mKey) l.classList.toggle('show', on);
+  });
+  cards.forEach(c => {
+    if (c.dataset.m === mKey) c.classList.toggle('active', on);
+  });
+}
+
+cards.forEach(c => {
+  c.addEventListener('mouseenter', () => highlight(c.dataset.m, true));
+  c.addEventListener('mouseleave', () => highlight(c.dataset.m, false));
+  c.addEventListener('click', () => {
+    const wasActive = c.classList.contains('active');
+    cards.forEach(x => x.classList.remove('active'));
+    lines.forEach(x => x.classList.remove('show'));
+    if (!wasActive) highlight(c.dataset.m, true);
+  });
+});
+
+document.querySelectorAll('.measure-line').forEach(g => {
+  g.addEventListener('mouseenter', () => highlight(g.dataset.m, true));
+  g.addEventListener('mouseleave', () => highlight(g.dataset.m, false));
+});
+</script>
+
+</body>
+</html>
